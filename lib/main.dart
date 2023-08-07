@@ -1,6 +1,9 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import './questao.dart';
 import './Resposta.dart';
+import './Resultado.dart';
 void main() => runApp(PerguntarApp());
 
 class _PerguntarAppState extends State<PerguntarApp> {
@@ -48,9 +51,10 @@ class _PerguntarAppState extends State<PerguntarApp> {
         body: temPerguntaSelecionada ? Column(
           children: <Widget>[
             Questao(_perguntas[_perguntaSelecionada]['texto'].toString()),
-           ...respostas.map((t) => Resposta(t, _responder)).toList(),
+           ...respostas!.map((t) => Resposta(t, _responder)).toList(),
           ],
-        ) : null,
+        ) : 
+         Resultado(),
       ),
     );
   }
